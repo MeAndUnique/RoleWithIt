@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+  Please see the license.txt file included with this distribution for 
+  attribution and copyright information.
+-->
+
+<root>
+	<windowclass name="npc_combat" merge="join">
+		<script file="campaign/scripts/npc_main.lua" />
+		<sheetdata>
+			<label_column name="role_label" insertbefore="summary_label">
+				<static textres="npc_label_role" />
+			</label_column>
+			<string_columnh name="role" insertbefore="summary_label">
+				<script>
+					function onValueChanged()
+						window.onSummaryChanged();
+					end
+				</script>
+			</string_columnh>
+		</sheetdata>
+	</windowclass>
+</root>
