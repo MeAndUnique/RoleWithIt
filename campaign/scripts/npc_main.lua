@@ -31,5 +31,5 @@ function update()
 	super.update()
 	local nodeRecord = getDatabaseNode();
 	local bReadOnly = WindowManager.getReadOnlyState(nodeRecord);
-	updateControl("role", bReadOnly, bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "role", bReadOnly, bReadOnly);
 end
