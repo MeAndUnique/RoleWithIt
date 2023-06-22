@@ -369,12 +369,12 @@ function importHelperActions()
 			ImportNPCManagerRWI.finalizeAction();
 			ImportNPCManagerRWI.setActionMode("bonusactions");
 			ImportNPCManagerRWI.addStatOutput("<h>Bonus Actions</h>");
-			
+
 		elseif sSimpleLine:match("^actions$") then
 			ImportNPCManagerRWI.finalizeAction();
 			ImportNPCManagerRWI.setActionMode("actions");
 			ImportNPCManagerRWI.addStatOutput("<h>Actions</h>");
-			
+
 		elseif sSimpleLine:match("^reactions$") then
 			ImportNPCManagerRWI.finalizeAction();
 			ImportNPCManagerRWI.setActionMode("reactions");
@@ -384,7 +384,12 @@ function importHelperActions()
 			ImportNPCManagerRWI.finalizeAction();
 			ImportNPCManagerRWI.setActionMode("legendaryactions");
 			ImportNPCManagerRWI.addStatOutput("<h>Legendary Actions</h>");
-			
+
+		elseif sSimpleLine:match("^villainactions$") then
+			ImportNPCManagerRWI.finalizeAction();
+			ImportNPCManagerRWI.setActionMode("legendaryactions");
+			ImportNPCManagerRWI.addStatOutput("<h>Villain Actions</h>");
+
 		elseif sSimpleLine:match("^lairactions$") then
 			ImportNPCManagerRWI.finalizeAction();
 			ImportNPCManagerRWI.setActionMode("lairactions");
