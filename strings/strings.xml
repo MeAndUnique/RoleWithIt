@@ -7,4 +7,5 @@
 
 <root>
 	<string name="npc_label_role">Role</string>
+	<string name="import_npc_mode_fm">MCDM - Flee, Mortals!</string>
 </root>

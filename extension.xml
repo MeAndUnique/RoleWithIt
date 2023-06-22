@@ -35,6 +35,7 @@ SOFTWARE.
 
 	<base>
 		<script name="LibraryDataRWI" file="scripts/data_library_rwi.lua" />
+		<script name="ImportNPCManagerRWI" file="scripts/manager_import_npc_rwi.lua" />
 
 		<includefile source="campaign/record_npc.xml" />
 		<includefile source="strings/strings.xml" />
