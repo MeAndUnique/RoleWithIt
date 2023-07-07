@@ -61,11 +61,11 @@ function appendActionDesc(tImportState, s)
 	end
 	if sChallenge then
 		ImportNPCManager.finalizeAction(tImportState);
-		table.insert(tImportState.tStatOutput, 2, string.format("<b>%s </b>", tImportState.sActiveLine));
+		table.insert(tImportState.tStatOutput, 2, string.format("<b>%s</b>", tImportState.sActiveLine));
 		DB.setValue(tImportState.node, "cr", "string", sChallenge);
 		DB.setValue(tImportState.node, "role", "string", sRole);
 	elseif sXp then
-		tImportState.tStatOutput[2] = tImportState.tStatOutput[2] .. string.format("%s", tImportState.sActiveLine);
+		tImportState.tStatOutput[2] = string.format("<p>%s %s</p>", tImportState.tStatOutput[2], tImportState.sActiveLine);
 		sXp = sXp:gsub(",","");
 		DB.setValue(tImportState.node, "xp", "number", tonumber(sXp));
 	else
