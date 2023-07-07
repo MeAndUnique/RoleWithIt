@@ -52,14 +52,19 @@ function importHelperSizeTypeAlignment(tImportState)
 	end
 end
 
--- CR, Role, and XP all come out last in the PDF.
+-- Adding Villain Actions here to avoid full rewrite of importHelperActions. CR, Role, and XP all come out last in the PDF.
 function appendActionDesc(tImportState, s)
 	local sChallenge, sRole, sXp;
 	if tImportState.bIsFleeMortals then
+		sSimpleLine = StringManager.simplify(tImportState.sActiveLine);
 		sChallenge, sRole = tImportState.sActiveLine:match("^CR ([%d\\]+) (%w+)$");
 		sXp = tImportState.sActiveLine:match("^([%d,]+) XP$");
 	end
-	if sChallenge then
+	if sSimpleLine:match("^villainactions$") then
+		ImportNPCManager.finalizeAction(tImportState);
+		ImportNPCManager.setActionMode(tImportState, "legendaryactions");
+		ImportNPCManager.addStatOutput(tImportState, "<h>Villain Actions</h>");
+	elseif sChallenge then
 		ImportNPCManager.finalizeAction(tImportState);
 		table.insert(tImportState.tStatOutput, 2, string.format("<b>%s</b>", tImportState.sActiveLine));
 		DB.setValue(tImportState.node, "cr", "string", sChallenge);
