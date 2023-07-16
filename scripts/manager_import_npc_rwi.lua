@@ -57,10 +57,10 @@ function appendActionDesc(tImportState, s)
 	local sChallenge, sRole, sXp;
 	if tImportState.bIsFleeMortals then
 		sSimpleLine = StringManager.simplify(tImportState.sActiveLine);
-		sChallenge, sRole = tImportState.sActiveLine:match("^CR ([%d\\]+) (%w+)$");
+		sChallenge, sRole = tImportState.sActiveLine:match("^CR ([%d/]+) (%w+)$");
 		sXp = tImportState.sActiveLine:match("^([%d,]+) XP$");
 	end
-	if sSimpleLine:match("^villainactions$") then
+	if (sSimpleLine or ""):match("^villainactions$") then
 		ImportNPCManager.finalizeAction(tImportState);
 		ImportNPCManager.setActionMode(tImportState, "legendaryactions");
 		ImportNPCManager.addStatOutput(tImportState, "<h>Villain Actions</h>");
